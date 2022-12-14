@@ -20,8 +20,12 @@ class QuestionSeeder extends Seeder
                 [
                     'category'=>'Khoa học',
                     'question'=>'Khi phải dùng thuốc, đặc biệt là thuốc kháng sinh cần chú ý điều gì?',
+                    'a'=>'Tuân theo sự chỉ định của bác sĩ',
+                    'b'=>'Phải biết tất cả những rủi ro có thể xảy ra khi dùng thuốc đó',
+                    'c'=>'Phải ngưng dùng thuốc nếu thấy bệnh không giảm hoặc bị dị ứng...',
+                    'd'=>'Tất cả các ý trên',
                     'correct_answer'=>'Tất cả các ý trên',
-                    'incorrect_answer'=> '[Tuân theo sự chỉ định của bác sĩ, Phải biết tất cả những rủi ro có thể xảy ra khi dùng thuốc đó,Phải ngưng dùng thuốc nếu thấy bệnh không giảm hoặc bị dị ứng...]',
+                    'status'=>'1',
                 ]
             ]
         );

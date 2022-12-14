@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\http\Controllers\QuestionController as AdQuestioncontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,11 +27,15 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('/chu_des', 'App\Http\Controllers\CategoryController', ['except' => ['show']]);
+	Route::resource('/questions', 'App\Http\Controllers\QuestionController', ['except' => ['show']]);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
+	Route::get('/question/create', [AdQuestioncontroller::class, 'create'])->name('Question-Create-get');
+	Route::post('/question/create', [AdQuestioncontroller::class, 'store'])->name('Question-Create-post');
+	
 });
 
 

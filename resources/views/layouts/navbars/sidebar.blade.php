@@ -42,6 +42,12 @@
           <p>{{ __('Chủ đề câu hỏi') }}</p>
         </a>
       </li>
+      <li class="@if ($activePage = 'question') active @endif">
+        <a href="{{ route('questions.index','Câu hỏi') }}">
+          <i class="now-ui-icons education_atom"></i>
+          <p>{{ __('Câu hỏi') }}</p>
+        </a>
+      </li>
       <li class = "@if ($activePage == 'maps') active @endif">
         <a href="{{ route('page.index','maps') }}">
           <i class="now-ui-icons location_map-big"></i>

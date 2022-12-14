@@ -11,9 +11,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card">
                         <h5 class="title">Chủ đề câu hỏi</h5>
-
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
