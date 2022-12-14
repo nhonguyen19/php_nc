@@ -15,10 +15,10 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create( ['name'=>'Khoa học']);
-        Category::create( ['name'=>'Lịch sử']);
-        Category::create( ['name'=>'Địa lí']);
-        Category::create( ['name'=>'Văn hoá']);
-        Category::create( ['name'=>'Thể Thao']);
+        Category::create( ['name'=>'Khoa học', 'status'=>'1']);
+        Category::create( ['name'=>'Lịch sử','status'=>'1']);
+        Category::create( ['name'=>'Địa lí','status'=>'1']);
+        Category::create( ['name'=>'Văn hoá','status'=>'1']);
+        Category::create( ['name'=>'Thể Thao','status'=>'1']);
     }
 }

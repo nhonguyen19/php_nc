@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini',
-    'activePage' => 'chu_de',
-    'namePage' => 'Chủ đề câu hỏi',
+    'activePage' => 'question',
+    'namePage' => 'Câu hỏi',
 ])
 
 @section('content')
@@ -13,10 +13,9 @@
                 <div class="card">
                     <div class="card-body">
                     <div class="col-8">
-                        <h4 class="card-title">DANH SÁCH CHỦ ĐỀ CÂU HỎI</h4>
-                        <a href="{{ route('Category-Create-get') }}" class="btn btn-fill btn-success">Thêm Chủ Đề</a>
+                        <h4 class="card-title">DANH SÁCH CÂU HỎI</h4>
+                        <a href="{{ route('Question-Create-get') }}" class="btn btn-fill btn-success">Thêm Câu Hỏi</a>
                     </div>
-                   
                 </div>
                             <table class="table">
                                 <thead class=" text-primary">
@@ -27,11 +26,29 @@
                                         <th>
                                             Chủ Đề
                                         </th>
-                                         <th>
+                                        <th>
+                                            Câu Hỏi
+                                        </th>
+                                        <th>
+                                            A
+                                        </th>
+                                        <th>
+                                            B
+                                        </th>
+                                        <th>
+                                            C
+                                        </th>
+                                        <th>
+                                            D
+                                        </th>
+                                        <th>
+                                            Đáp Án Đúng
+                                        </th>
+                                        <th>
                                             Trạng Thái
                                         </th>
                                         <th>
-                                            Ngày tạo
+                                           Ngày tạo
                                         </th>
                                         </tr>
                                 </thead>
@@ -43,16 +60,45 @@
                                         <tbody>
                                         <tr>
                                         <td>
-                                            <p> {{ $p->id}}</p>
+                                            <p>{{$p->id}}</p>
                                         </td>
                                         <td>
-                                            <p>   {{ $p->name }}</p>
+                                            <p>{{$p->category}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{$p->question}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{$p->a}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{$p->b}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{$p->c}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{$p->d}}</p>
+                                        </td>
+                                        <td>
+                                            <p>
+                                            @if($p->correct_answer==1)
+                                                {{$p->a }}
+                                            @elseif($p->correct_answer==2)
+                                                {{$p->b }}
+                                            @elseif($p->correct_answer==3)
+                                                {{$p->c }}
+                                            @elseif($p->correct_answer==4)
+                                                {{$p->d }}
+                                            
+                                            @endif
+                                            </p>
                                         </td>
                                         <td>
                                             <p>{{$p->status==1?"Hoạt Động":"Không Hoạt Động"}}</p>
                                         </td>
                                         <td>
-                                            <p>   {{ $p->created_at }}</p>
+                                            <p>{{$p->created_at}}</p>
                                         </td>
                                        </div>
                                        

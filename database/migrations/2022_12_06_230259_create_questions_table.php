@@ -17,8 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('category',100);
             $table->string('question',255);
-            $table->string('correct_answer', 255);
-            $table->string('incorrect_answer',255);
+            $table->string('a', 255);
+            $table->string('b', 255);
+            $table->string('c', 255);
+            $table->string('d', 255);
+            $table->string('correct_answer',255);
+            $table->boolean('status',2)->default('1');
             $table->timestamps();
             $table->softDeletes();
         });

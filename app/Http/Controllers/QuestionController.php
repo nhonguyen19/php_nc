@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Question;
+use App\Models\Category;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 
@@ -15,7 +17,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $lst=Question::all();
+        return view('question',['lst'=>$lst]);
     }
 
     /**
@@ -25,7 +28,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        $lsType=Category::get();
+        return view('question_create',['lsType'=>$lsType]);
     }
 
     /**
@@ -36,7 +40,18 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        //
+        Question::create([
+            'category'=> $request->input('category'),
+            'question'=> $request->input('question'),
+            'a'=> $request->input('a'),
+            'b'=> $request->input('b'),
+            'c'=> $request->input('c'),
+            'd'=> $request->input('d'),
+            'correct_answer'=> $request->input('correct_answer'),    
+            'status'=>$request->input('status'),        
+            'category_id'=>1
+        ]);
+        return redirect()->route('questions.index');
     }
 
     /**
