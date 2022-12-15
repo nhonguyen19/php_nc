@@ -40,18 +40,7 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        Question::create([
-            'category'=> $request->input('category'),
-            'question'=> $request->input('question'),
-            'a'=> $request->input('a'),
-            'b'=> $request->input('b'),
-            'c'=> $request->input('c'),
-            'd'=> $request->input('d'),
-            'correct_answer'=> $request->input('correct_answer'),    
-            'status'=>$request->input('status'),        
-            'category_id'=>1
-        ]);
-        return redirect()->route('questions.index');
+        //
     }
 
     /**
