@@ -81,18 +81,20 @@
                                             <p>{{$p->d}}</p>
                                         </td>
                                         <td>
-                                            <p>
+                                           
                                             @if($p->correct_answer==1)
-                                                {{$p->a }}
+                                            <p>{{$p->a }}</p>
+
                                             @elseif($p->correct_answer==2)
-                                                {{$p->b }}
+                                            <p>{{$p->b }}</p>
+
                                             @elseif($p->correct_answer==3)
-                                                {{$p->c }}
+                                            <p>{{$p->c }}</p>
+
                                             @elseif($p->correct_answer==4)
-                                                {{$p->d }}
-                                            
+                                            <p>{{$p->d }}</p>
                                             @endif
-                                            </p>
+                                            
                                         </td>
                                         <td>
                                             <p>{{$p->status==1?"Hoạt Động":"Không Hoạt Động"}}</p>
@@ -108,7 +110,7 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Sửa</a>  
+                                            <a class="dropdown-item" href="{{route('questions.edit', ['question'=>$p])}}">Sửa</a>  
                                             <a class="dropdown-item" href="#">Xoá</a>             
                                         </div>
                                         </div>

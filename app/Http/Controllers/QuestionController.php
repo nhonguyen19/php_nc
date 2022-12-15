@@ -73,7 +73,10 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        // $lst=Question::all();
+        // return view('question_edit',['lst'=>$lst]);
+        $lsType=Category::get();
+        return view('question_edit',['p'=>$question,'lsType'=>$lsType]);
     }
 
     /**
@@ -85,7 +88,19 @@ class QuestionController extends Controller
      */
     public function update(UpdateQuestionRequest $request, Question $question)
     {
-        //
+        // dd($request);
+        $question->fill([
+            'id'=>$request->id,
+            'category'=> $request->category,
+            'question'=>$request->question,
+            'a'=>$request->a,
+            'b'=>$request->b,
+            'c'=>$request->c,
+            'd'=>$request->d,
+            'correct_answer'=>$request->correct_answer,
+        ]);
+        $question->save();
+        return redirect()->route('questions.index');
     }
 
     /**

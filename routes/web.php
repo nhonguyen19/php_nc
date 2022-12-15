@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/question/create', [AdQuestioncontroller::class, 'store'])->name('Question-Create-post');
 	Route::get('/question/edit', [AdQuestioncontroller::class, 'edit'])->name('Question-Edit-get');
 	Route::post('/question/edit', [AdQuestioncontroller::class, 'store'])->name('Question-Edit-post');
+	Route::put('/question/update', [AdQuestioncontroller::class, 'update'])->name('Question-Edit-put');
 	Route::get('/chu_de/create', [AdCategoryController::class, 'create'])->name('Category-Create-get');
 	Route::post('/chu_de/create', [AdCategoryController::class, 'store'])->name('Category-Create-post');
 });

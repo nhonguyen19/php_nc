@@ -11,15 +11,18 @@
            <div class="card">
                 <div class="card-body">
                     <div class="col-8">
-                        <h4 class="card-title">Thêm câu hỏi</h4>
+                        <h4 class="card-title">Sửa câu hỏi</h4>
                     </div>
-                    <form method="post" action="{{ route('Question-Create-post') }}" enctype  = "multipart/form-data" autocomplete="off">
-                        <div class="card-body">
+                    <form method="post" action="{{ route('Question-Edit-put',['question'=>$p]) }}" enctype  = "multipart/form-data" autocomplete="off">
                                 @csrf
+                                @method('PUT')
+                                @foreach($lsType as $question)
+                                @if($question->id==old('question',$p->id))
+                                <input type="hidden" value="{{$question->id}}" name ="id"  class="form-control" >
+                    <div class="card-body">                                
                             <div class="form-group" >
                                 <label for="country-floating">Category</label>
                                 <select name='category' class="form-control">
-                                    <option>Chọn chủ đề</option>
                                     @foreach($lsType as $item)
                                     <option>{{ $item->name }}</option>
                                     @endforeach
@@ -27,43 +30,44 @@
                             </div>
                             <div class="form-group">
                                 <label>{{ __('Câu Hỏi') }}</label>
-                                <input type="" name="question" class="form-control">
+                                <input name ="question" value="{{old('question', $p->question)}}"   class="form-control" >
                             </div>
                             
 
                             <div class="form-group">
                                 <label>{{ __('Câu Trả lời 1') }}</label>
-                                <input type="" name="a" class="form-control">
+                                <input name ="question" value="{{old('question', $p->a)}}"  class="form-control" >
                             </div>
                             
 
                             <div class="form-group">
                                 <label>{{ __('Câu Trả lời 2') }}</label>
-                                <input type="" name="b" class="form-control">
+                                <input name ="question" value="{{old('question', $p->b)}}" class="form-control">
                             </div>
                            
 
                             <div class="form-group">
                                 <label>{{ __('Câu Trả lời 3') }}</label>
-                                <input type="" name="c" class="form-control">
+                                <input name ="question" value="{{old('question', $p->c)}}" class="form-control">
                             </div>
                             
 
                             <div class="form-group">
                                 <label>{{ __('Câu Trả lời 4') }}</label>
-                                <input type="" name="d" class="form-control">
+                                <input name ="question" value="{{old('question', $p->d)}}" class="form-control">
                             </div>
                             
 
                             <div class="form-group">
                                 <label>{{ __('Chọn Đáp Án') }}</label>
-                                <select name="correct_answer" value="{{old('correct_answer')}}" class="form-control" >
-                                <option value='' class="text-danger">Chọn đáp án</option> 
-                                <option value="1" class="text-danger">Đáp án 1</option>
-                                <option value='2' class="text-danger">Đáp án 2</option>
-                                <option value='3' class="text-danger">Đáp án 3</option>
-                                <option value='4' class="text-danger">Đáp án 4</option>
+                                <select name="correct_answer" value="{{old('question', $p->d)}}" class="form-control" >
+                                        <option value="{{old('question', $p->id)}}" class="text-danger" >Đáp án {{old('question',$p->correct_answer)}}</option>
+                                        <option value='1' class="text-danger">Đáp án 1</option>
+                                        <option value='2' class="text-danger">Đáp án 2</option>
+                                        <option value='3' class="text-danger">Đáp án 3</option>
+                                        <option value='4' class="text-danger">Đáp án 4</option>
                                 </select>
+
                             </div>
 
                             <div class="form-group">
@@ -75,14 +79,16 @@
                             </div>
                             
                             </div>
+                            @endif
+                        @endforeach
                         
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-fill btn-success">{{ __('Thêm')}}</button>
+                            <button type="submit" class="btn btn-fill btn-success">{{ __('Sửa')}}</button>
                         </div>
                     </form>     
                 </div>
             </div>
         </div>
     </div>
-@endsection
+@endsection 
 
