@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 @extends('layouts.app', [
     'class' => 'sidebar-mini',
     'activePage' => 'category',
     'namePage' => 'Chủ đề',
 ])
 
+=======
+>>>>>>> dd2e612718f8d5b6e76a4dc8ed9510dd2e24f4e7
 @section('content')
     <div class="panel-header panel-header-sm"></div>
     <div class="content">
@@ -11,6 +14,7 @@
            <div class="card">
                 <div class="card-body">
                     <div class="col-8">
+<<<<<<< HEAD
                         <h4 class="card-title">Danh Sách Chủ Để</h4>
                     </div>
                     <form method="post" action="{{ route('Category-Create-post') }}" enctype  = "multipart/form-data" autocomplete="off">
@@ -29,6 +33,18 @@
                                     </select>
                                 </div>
                                  <br>@if($errors->has('name')) {{$errors->first('name')}} <br>@endif     
+=======
+                        <h4 class="card-title">Danh Sách Chủ Đề</h4>
+                    </div>
+                    <form method="post" action="{{ route('categories.store') }}" enctype  = "multipart/form-data" autocomplete="off">
+                        <div class="card-body">
+                                @csrf
+                                <div class="form-group">
+                                    <label>{{ __('Tên Lĩnh Vực') }}</label>
+                                    <input type="text" name="name" value="{{old('name')}}" class="form-control">
+                                </div>    
+                                <!-- <br>@if($errors->has('name')) {{$errors->first('name')}} <br>@endif      -->
+>>>>>>> dd2e612718f8d5b6e76a4dc8ed9510dd2e24f4e7
                         </div>
                         
                         <div class="card-footer">

@@ -40,18 +40,7 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        Question::create([
-            'category'=> $request->input('category'),
-            'question'=> $request->input('question'),
-            'a'=> $request->input('a'),
-            'b'=> $request->input('b'),
-            'c'=> $request->input('c'),
-            'd'=> $request->input('d'),
-            'correct_answer'=> $request->input('correct_answer'),    
-            'status'=>$request->input('status'),        
-            'category_id'=>1
-        ]);
-        return redirect()->route('questions.index');
+        //
     }
 
     /**
@@ -73,7 +62,10 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        // $lst=Question::all();
+        // return view('question_edit',['lst'=>$lst]);
+        $lsType=Category::get();
+        return view('question_edit',['p'=>$question,'lsType'=>$lsType]);
     }
 
     /**
@@ -85,7 +77,19 @@ class QuestionController extends Controller
      */
     public function update(UpdateQuestionRequest $request, Question $question)
     {
-        //
+        // dd($request);
+        $question->fill([
+            'id'=>$request->id,
+            'category'=> $request->category,
+            'question'=>$request->question,
+            'a'=>$request->a,
+            'b'=>$request->b,
+            'c'=>$request->c,
+            'd'=>$request->d,
+            'correct_answer'=>$request->correct_answer,
+        ]);
+        $question->save();
+        return redirect()->route('questions.index');
     }
 
     /**

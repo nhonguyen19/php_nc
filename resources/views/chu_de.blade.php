@@ -11,6 +11,7 @@
         <div class="row">
            
                 <div class="card">
+<<<<<<< HEAD
                     <div class="card-body">
                     <div class="col-8">
                         <h4 class="card-title">DANH SÁCH CHỦ ĐỀ CÂU HỎI</h4>
@@ -18,6 +19,11 @@
                     </div>
                    
                 </div>
+=======
+                    <div class="card">
+                        <h5 class="title">Chủ đề câu hỏi</h5>
+                        <div class="table-responsive">
+>>>>>>> dd2e612718f8d5b6e76a4dc8ed9510dd2e24f4e7
                             <table class="table">
                                 <thead class=" text-primary">
                                     <tr>

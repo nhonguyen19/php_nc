@@ -37,11 +37,7 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        Category::create([
-            'name'=>$request->input('name'),
-            'status'=>$request->input('status'),
-        ]);
-        return redirect()->route('chu_des.index');
+        //
     }
 
     /**
