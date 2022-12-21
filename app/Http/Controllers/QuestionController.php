@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 
+use Illuminate\Http\Request;
+
 class QuestionController extends Controller
 {
     /**
@@ -28,7 +30,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $lsType=Category::get();
+        $lsType=Category::all();
         return view('question_create',['lsType'=>$lsType]);
     }
 
@@ -73,7 +75,8 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        $lst=Category::all();
+        return view('question_edit',['p'=>$question,'lst'=>$lst]);
     }
 
     /**
@@ -83,9 +86,20 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateQuestionRequest $request, Question $question)
+    public function update(Request $request,int $id)
     {
-        //
+        //dd($request);
+        $question = Question::find($id);
+        $question->category = $request->category;
+        $question->question = $request->question;
+        $question->a = $request->a;
+        $question->b = $request->b;
+        $question->c = $request->c;
+        $question->d = $request->d;
+        $question->correct_answer = $request->correct_answer;    
+        $question->status =$request->status;        
+        $question->update();
+        return redirect()->route('questions.index')->with('success','Update successfully');
     }
 
     /**
@@ -96,6 +110,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return redirect()->route('questions.index');
     }
 }

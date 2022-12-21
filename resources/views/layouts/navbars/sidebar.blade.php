@@ -36,16 +36,16 @@
             </li>
           </ul>
         </div>
-      <li class="@if ($activePage = 'chu_de') active @endif">
+      <li class="@if ($activePage =='category') active @endif">
         <a href="{{ route('chu_des.index','Chủ đề câu hỏi') }}">
-          <i class="now-ui-icons education_atom"></i>
-          <p>{{ __('Chủ đề câu hỏi') }}</p>
+          <i class="now-ui-icons education_agenda-bookmark"></i>
+          <p>{{ __('Topic') }}</p>
         </a>
       </li>
-      <li class="@if ($activePage = 'question') active @endif">
+      <li class="@if ($activePage == 'question') active @endif">
         <a href="{{ route('questions.index','Câu hỏi') }}">
-          <i class="now-ui-icons education_atom"></i>
-          <p>{{ __('Câu hỏi') }}</p>
+          <i class="now-ui-icons media-1_button-play"></i>
+          <p>{{ __('Question') }}</p>
         </a>
       </li>
       <li class = "@if ($activePage == 'maps') active @endif">

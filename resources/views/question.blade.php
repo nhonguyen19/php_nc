@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini',
     'activePage' => 'question',
-    'namePage' => 'Câu hỏi',
+    'namePage' => 'QUESTION LIST',
 ])
 
 @section('content')
@@ -13,8 +13,8 @@
                 <div class="card">
                     <div class="card-body">
                     <div class="col-8">
-                        <h4 class="card-title">DANH SÁCH CÂU HỎI</h4>
-                        <a href="{{ route('Question-Create-get') }}" class="btn btn-fill btn-success">Thêm Câu Hỏi</a>
+                        <h4 class="card-title">QUESTION LIST</h4>
+                        <a href="{{ route('questions.create') }}" class="btn btn-fill btn-success">ADD QUESTION</a>
                     </div>
                 </div>
                             <table class="table">
@@ -24,10 +24,10 @@
                                             ID
                                         </th>
                                         <th>
-                                            Chủ Đề
+                                           Topic
                                         </th>
                                         <th>
-                                            Câu Hỏi
+                                           Question
                                         </th>
                                         <th>
                                             A
@@ -42,13 +42,13 @@
                                             D
                                         </th>
                                         <th>
-                                            Đáp Án Đúng
+                                            Correct
                                         </th>
                                         <th>
-                                            Trạng Thái
+                                            Status
                                         </th>
                                         <th>
-                                           Ngày tạo
+                                            Date
                                         </th>
                                         </tr>
                                 </thead>
@@ -95,7 +95,7 @@
                                             </p>
                                         </td>
                                         <td>
-                                            <p>{{$p->status==1?"Hoạt Động":"Không Hoạt Động"}}</p>
+                                            <p>{{$p->status==1?"Active":"InActive"}}</p>
                                         </td>
                                         <td>
                                             <p>{{$p->created_at}}</p>
@@ -108,8 +108,14 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Sửa</a>  
-                                            <a class="dropdown-item" href="#">Xoá</a>             
+                                                <a class="dropdown-item" href="{{route('questions.edit', ['question'=>$p->id])}}">Edit</a> 
+                                            <form method="post" action="{{route('questions.destroy', ['question'=>$p->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a><input type="submit" value="Delete" class="dropdown-item"></a>
+                                            </form>
+                                               
+                                                  
                                         </div>
                                         </div>
                                     </td>

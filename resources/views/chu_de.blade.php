@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini',
-    'activePage' => 'chu_de',
-    'namePage' => 'Chủ đề câu hỏi',
+    'activePage' => 'category',
+    'namePage' => 'TOPIC',
 ])
 
 @section('content')
@@ -13,8 +13,8 @@
                 <div class="card">
                     <div class="card-body">
                     <div class="col-8">
-                        <h4 class="card-title">DANH SÁCH CHỦ ĐỀ CÂU HỎI</h4>
-                        <a href="{{ route('Category-Create-get') }}" class="btn btn-fill btn-success">Thêm Chủ Đề</a>
+                        <h4 class="card-title">TOPIC QUESTION LIST</h4>
+                        <a href="{{ route('chu_des.create') }}" class="btn btn-fill btn-success">ADD TOPIC</a>
                     </div>
                    
                 </div>
@@ -25,34 +25,34 @@
                                             ID
                                         </th>
                                         <th>
-                                            Chủ Đề
+                                            Topic
                                         </th>
                                          <th>
-                                            Trạng Thái
+                                            Status
                                         </th>
                                         <th>
-                                            Ngày tạo
+                                           Date
                                         </th>
                                         </tr>
                                 </thead>
                                
-                                @foreach($lst as $p)
+                                @foreach($lst as $c)
                                     <div class="namePage">   
                                         @csrf    
                                         </thead>
                                         <tbody>
                                         <tr>
                                         <td>
-                                            <p> {{ $p->id}}</p>
+                                            <p> {{ $c->id}}</p>
                                         </td>
                                         <td>
-                                            <p>   {{ $p->name }}</p>
+                                            <p>   {{ $c->name }}</p>
                                         </td>
                                         <td>
-                                            <p>{{$p->status==1?"Hoạt Động":"Không Hoạt Động"}}</p>
+                                            <p>{{$c->status==1?"Active":"InActive"}}</p>
                                         </td>
                                         <td>
-                                            <p>   {{ $p->created_at }}</p>
+                                            <p>   {{ $c->created_at }}</p>
                                         </td>
                                        </div>
                                        
@@ -62,8 +62,12 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="#">Sửa</a>  
-                                            <a class="dropdown-item" href="#">Xoá</a>             
+                                                <a class="dropdown-item" href="{{route('chu_des.edit', ['chu_de'=>$c->id])}}">Edit</a> 
+                                                <form method="post" action="{{route('chu_des.destroy',['chu_de'=>$c->id])}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a><input type="submit" value="Delete" class="dropdown-item"></a>
+                                                </form>          
                                         </div>
                                         </div>
                                     </td>

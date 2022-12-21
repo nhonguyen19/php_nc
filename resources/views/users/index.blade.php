@@ -191,12 +191,18 @@
                   </li>
                 </ul>
               </div>
-          <li >
-            <a href="{{ route('page.index','chu_des') }}">
-              <i class="now-ui-icons education_atom"></i>
-              <p>{{ __('Chủ đề câu hỏi') }}</p>
-            </a>
-          </li>
+              <li>
+                <a href="{{ route('chu_des.index','Chủ đề câu hỏi') }}">
+                  <i class="now-ui-icons education_agenda-bookmark"></i>
+                  <p>{{ __('Topic') }}</p>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('questions.index','Câu hỏi') }}">
+                  <i class="now-ui-icons media-1_button-play"></i>
+                  <p>{{ __('Question') }}</p>
+                </a>
+              </li>
           <li >
             <a href="{{ route('page.index','maps') }}">
               <i class="now-ui-icons location_map-big"></i>

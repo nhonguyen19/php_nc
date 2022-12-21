@@ -23,8 +23,14 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return[
+            'name'=>['required'],
+        ];
+    }
+    public function messages()
+    {
+        return[
+            'name.required'=>'Tên chủ đề không được bỏ trống',
         ];
     }
 }

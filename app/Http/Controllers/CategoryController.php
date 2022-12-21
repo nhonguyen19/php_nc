@@ -63,7 +63,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $lst=Category::all();
+        return view('chu_de_edit',['p'=>$category,'lst'=>$lst]);
     }
 
     /**
@@ -75,7 +76,13 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+       
+        $category->fill([
+            'name'=>$request->name,
+            'status'=>$request->status,
+        ]);
+        $category->save();
+        return redirect()->route('chu_des.index');
     }
 
     /**
@@ -85,7 +92,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
-    {
-        //
+    {   
+        $category->delete();
+        return redirect()->route('chu_des.index');  
     }
 }
