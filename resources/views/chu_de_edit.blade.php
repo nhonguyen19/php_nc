@@ -13,13 +13,13 @@
                     <div class="col-8">
                         <h4 class="card-title">EDIT TOPIC</h4>
                     </div>
-                    <form method="post" action="{{ route('chu_des.update',['chu_de'=>$p]) }}" enctype= "multipart/form-data" autocomplete="off">
+                    <form method="post" action="{{ route('chu_des.update',['chu_de'=>$lst]) }}" enctype= "multipart/form-data" autocomplete="off">
                             <div class="card-body">
                                 @csrf   
                                 @method('PUT')  
                             <div class="form-group">    
                                 <label>{{ __('Topic Name') }}</label>
-                                <input name="name" value="{{old('name', $p->name)}}" class="form-control">
+                                <input name="name" value="{{old('name', $lst->name)}}" class="form-control">
                             </div>
                         
                             <div class="form-group">
