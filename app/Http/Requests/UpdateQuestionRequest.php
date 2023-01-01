@@ -24,14 +24,21 @@ class UpdateQuestionRequest extends FormRequest
     public function rules()
     {
         return [
+<<<<<<< HEAD
             'id'=>['required'],
             'category'=>['required'],
             'category_id'=>['required'],
             'question'=>['required','unique:questions'],
+=======
+            //
+            'category'=>['required'],
+            'question'=>['required'],
+>>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
             'a'=>['required'],
             'b'=>['required'],
             'c'=>['required'],
             'd'=>['required'],
+<<<<<<< HEAD
         ];
     }
     public function messages()
@@ -43,6 +50,17 @@ class UpdateQuestionRequest extends FormRequest
             'b.required'=>'Câu trả lời 2 không được bỏ trống',
             'c.required'=>'Câu trả lời 3 không được bỏ trống',
             'd.required'=>'Câu trả lời 4 không được bỏ trống',
+=======
+>>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
         ];
     }
+    // public function messages(){
+    //     return [
+    //         'cau_hoi.required'=>'Chưa nhập câu hỏi',
+    //         'cau_tra_loi_1.required'=>'Chưa nhập câu trả lời 1',
+    //         'cau_tra_loi_2.required'=>'Chưa nhập câu trả lời 2',
+    //         'cau_tra_loi_3.required'=>'Chưa nhập câu trả lời 3',
+    //         'cau_tra_loi_4.required'=>'Chưa nhập câu trả lời 4',
+    //     ];
+    // }
 }

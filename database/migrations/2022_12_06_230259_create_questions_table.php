@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('c', 255);
             $table->string('d', 255);
             $table->string('correct_answer',255);
-            $table->boolean('status',2)->default('1');
+            $table->boolean('status',2);
             $table->timestamps();
             $table->softDeletes();
         });

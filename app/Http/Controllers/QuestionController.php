@@ -43,18 +43,7 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        Question::create([
-            'category'=> $request->input('category'),
-            'question'=> $request->input('question'),
-            'a'=> $request->input('a'),
-            'b'=> $request->input('b'),
-            'c'=> $request->input('c'),
-            'd'=> $request->input('d'),
-            'correct_answer'=> $request->input('correct_answer'),    
-            'status'=>$request->input('status'),        
-            'category_id'=>1
-        ]);
-        return redirect()->route('questions.index');
+        //
     }
 
     /**
@@ -76,8 +65,15 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+<<<<<<< HEAD
         $lst=Category::all();
         return view('question_edit',['p'=>$question,'lst'=>$lst]);
+=======
+        // $lst=Question::all();
+        // return view('question_edit',['lst'=>$lst]);
+        $lsType=Category::get();
+        return view('question_edit',['p'=>$question,'lsType'=>$lsType]);
+>>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
     }
 
     /**
@@ -89,6 +85,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request,int $id)
     {
+<<<<<<< HEAD
         //dd($request);
         $question = Question::find($id);
         $question->category = $request->category;
@@ -101,6 +98,21 @@ class QuestionController extends Controller
         $question->status =$request->status;        
         $question->update();
         return redirect()->route('questions.index')->with('success','Update successfully');
+=======
+        // dd($request);
+        $question->fill([
+            'id'=>$request->id,
+            'category'=> $request->category,
+            'question'=>$request->question,
+            'a'=>$request->a,
+            'b'=>$request->b,
+            'c'=>$request->c,
+            'd'=>$request->d,
+            'correct_answer'=>$request->correct_answer,
+        ]);
+        $question->save();
+        return redirect()->route('questions.index');
+>>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
     }
 
     /**

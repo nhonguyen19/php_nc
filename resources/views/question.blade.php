@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app', [
     'class' => 'sidebar-mini',
     'activePage' => 'question',
@@ -134,3 +135,5 @@
         </div>
     </div>
 @endsection
+=======
+>>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
