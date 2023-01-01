@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Question;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $lstQuestion= Question::all();
         $lst=Category::all();
-        return view('chu_de',['lst'=>$lst]);
+        return view('chu_de',['lst'=>$lst,'lstQuestion'=>$lstQuestion]);
     }
 
     /**
@@ -28,7 +30,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('chu_de_create');
+        $lst=Category::where('status',1)->get();
+        return view('chu_de_create',['lst'=>$lst]);
     }
 
     /**
@@ -73,7 +76,7 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateCategoryRequest  $request
-     * @param  \App\Models\Category  $categoryđ
+     * @param  \App\Models\Category 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,int $id)
@@ -96,7 +99,6 @@ class CategoryController extends Controller
     {   
         //dd($id);
         $category= Category::find($id);
-        
         $category->status = 0;
         $category->update();
         return redirect()->route('chu_des.index');  

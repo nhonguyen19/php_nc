@@ -30,8 +30,9 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $lsType=Category::all();
-        return view('question_create',['lsType'=>$lsType]);
+        $lsType=Category::where('status',1)->get();
+        $lst=Question::where('status',1)->get();
+        return view('question_create',['lsType'=>$lsType],['lst'=>$lst]);
     }
 
     /**
@@ -108,9 +109,15 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy(int $id)
     {
-        $question->delete();
-        return redirect()->route('questions.index');
+        // $question->delete();
+        // return redirect()->route('questions.index');
+        
+        $question= Question::find($id);
+        
+        $question->status = 0;
+        $question->update();
+        return redirect()->route('questions.index');  
     }
 }

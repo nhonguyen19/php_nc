@@ -5,6 +5,13 @@
 ])
 
 @section('content')
+<header>
+    <script language="JavaScript" type="text/javascript">
+      function confirmDelete(){      
+          return confirm('Bạn có chắc chắn muốn xóa');
+      }
+    </script>
+  </header>
     <div class="panel-header panel-header-sm">
     </div>
     <div class="content">
@@ -112,10 +119,8 @@
                                             <form method="post" action="{{route('questions.destroy', ['question'=>$p->id]) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a><input type="submit" value="Delete" class="dropdown-item"></a>
+                                                <a><input type="submit" value="Delete" onclick="return confirmDelete()" class="dropdown-item"></a>
                                             </form>
-                                               
-                                                  
                                         </div>
                                         </div>
                                     </td>

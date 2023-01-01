@@ -38,7 +38,7 @@ class UpdateQuestionRequest extends FormRequest
     {
         return [
             'question.required'=>'Tên câu hỏi không được bỏ trống',
-            'question.unique'=>'Têm câu hỏi đã tồn tại',
+            'question.unique'=>'Tên câu hỏi đã tồn tại',
             'a.required'=>'Câu trả lời 1 không được bỏ trống',
             'b.required'=>'Câu trả lời 2 không được bỏ trống',
             'c.required'=>'Câu trả lời 3 không được bỏ trống',
