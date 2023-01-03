@@ -24,21 +24,14 @@ class UpdateQuestionRequest extends FormRequest
     public function rules()
     {
         return [
-<<<<<<< HEAD
             'id'=>['required'],
             'category'=>['required'],
             'category_id'=>['required'],
             'question'=>['required','unique:questions'],
-=======
-            //
-            'category'=>['required'],
-            'question'=>['required'],
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
             'a'=>['required'],
             'b'=>['required'],
             'c'=>['required'],
             'd'=>['required'],
-<<<<<<< HEAD
         ];
     }
     public function messages()
@@ -50,8 +43,6 @@ class UpdateQuestionRequest extends FormRequest
             'b.required'=>'Câu trả lời 2 không được bỏ trống',
             'c.required'=>'Câu trả lời 3 không được bỏ trống',
             'd.required'=>'Câu trả lời 4 không được bỏ trống',
-=======
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
         ];
     }
     // public function messages(){

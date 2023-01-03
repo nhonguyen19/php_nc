@@ -64,18 +64,14 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Question $question)
-    {
-<<<<<<< HEAD
+    { 
         $lst=Category::all();
         return view('question_edit',['p'=>$question,'lst'=>$lst]);
-=======
         // $lst=Question::all();
         // return view('question_edit',['lst'=>$lst]);
         $lsType=Category::get();
         return view('question_edit',['p'=>$question,'lsType'=>$lsType]);
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -85,7 +81,6 @@ class QuestionController extends Controller
      */
     public function update(Request $request,int $id)
     {
-<<<<<<< HEAD
         //dd($request);
         $question = Question::find($id);
         $question->category = $request->category;
@@ -98,7 +93,6 @@ class QuestionController extends Controller
         $question->status =$request->status;        
         $question->update();
         return redirect()->route('questions.index')->with('success','Update successfully');
-=======
         // dd($request);
         $question->fill([
             'id'=>$request->id,
@@ -112,7 +106,6 @@ class QuestionController extends Controller
         ]);
         $question->save();
         return redirect()->route('questions.index');
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
     }
 
     /**

@@ -22,23 +22,22 @@
     <div class="content">
 
         <div class="row">
-<<<<<<< HEAD
 
             <div class="card">
                 <div class="card-body">
-=======
+
            
                 <div class="card">
-<<<<<<< HEAD
+
                     <div class="card-body">
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
+
                     <div class="col-8">
                         <h4 class="card-title">TOPIC QUESTION LIST</h4>
                         <a href="{{ route('chu_des.create') }}" class="btn btn-fill btn-success">ADD TOPIC</a>
                     </div>
 
                 </div>
-<<<<<<< HEAD
+
                 <table class="table">
                     <thead class=" text-primary">
                         <tr>
@@ -65,12 +64,11 @@
                                 <tr>
                                     <td>
                                         <p> {{ $c->id }}</p>
-=======
-=======
+
                     <div class="card">
                         <h5 class="title">Chủ đề câu hỏi</h5>
                         <div class="table-responsive">
->>>>>>> dd2e612718f8d5b6e76a4dc8ed9510dd2e24f4e7
+
                             <table class="table">
                                 <thead class=" text-primary">
                                     <tr>
@@ -119,7 +117,6 @@
                                             <a class="dropdown-item" href="#">Xoá</a>             
                                         </div>
                                         </div>
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
                                     </td>
                                     <td>
                                         <p> {{ $c->name }}</p>

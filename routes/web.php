@@ -2,14 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-=======
 use App\http\Controllers\QuestionController as AdQuestioncontroller;
 
 use App\http\Controllers\CategoryController as AdCategoryController;
 
 
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +37,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
-<<<<<<< HEAD
 	//Route::get('/question/create', [AdQuestioncontroller::class, 'create'])->name('Question-Create-get');
 	//Route::post('/question/create', [AdQuestioncontroller::class, 'store'])->name('Question-Create-post');
 	//Route::get('/question/edit', [AdQuestioncontroller::class, 'edit'])->name('Question-Edit-get');
@@ -49,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 	//Route::delete('/question/delete',[AdQuestioncontroller::class,'destroy'])->name('Question-Delete-delete');
 	//Route::get('/chu_de/create', [AdCategoryController::class, 'create'])->name('Category-Create-get');
 	//Route::post('/chu_de/create', [AdCategoryController::class, 'store'])->name('Category-Create-post');
-=======
+
 	Route::get('/question/create', [AdQuestioncontroller::class, 'create'])->name('Question-Create-get');
 	Route::post('/question/create', [AdQuestioncontroller::class, 'store'])->name('Question-Create-post');
 
@@ -59,9 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/chu_de/create', [AdCategoryController::class, 'create'])->name('Category-Create-get');
 	Route::post('/chu_de/create', [AdCategoryController::class, 'store'])->name('Category-Create-post');
 
-	
 
->>>>>>> ddb362bc50549c58e56f32d8b4fc88d30997fc4c
 });
 
 
